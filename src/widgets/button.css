@@ -1,0 +1,17 @@
+.buttons {
+    margin-top: 30px;
+}
+
+.btn {
+    min-width: 370px;
+    padding: 20px;
+    padding-right: 10px;
+    color: white;
+    border-radius: 8px;
+    display: inline-block;
+
+    margin: 5px;
+
+    flex-direction: row;
+    font-size: 30px;
+}

@@ -1,0 +1,16 @@
+.login {
+    border-radius: 10px;
+    height: 45px;
+    width: 150px;
+    padding: 10px;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    border: 1px solid #d70026;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: all 0.3s ease-out;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    margin-left: 4px;
+}

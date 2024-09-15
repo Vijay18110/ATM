@@ -1,0 +1,175 @@
+.atmcontainer {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 3%;
+}
+
+
+.atmcontainercol1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    font-size: 30px;
+}
+
+@media screen and (max-width:480px) {
+    .atmcontainercol1 {
+
+        flex-direction: column;
+    }
+}
+
+.atmcontainercol1 i {
+    font-size: 100px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.btn {
+    height: 40px;
+    font-size: 12px;
+    height: 70px;
+    width: 100px;
+
+}
+
+@media screen and (max-width:480px) {
+    .btn {
+        flex-direction: row;
+    }
+}
+
+.userdetail p {
+    color: white;
+    display: block;
+    font-size: 30px;
+    margin: 5px;
+}
+
+.userdetail :last-child {
+    color: yellow;
+}
+
+.userdetail :nth-child(3) {
+    color: red;
+}
+
+.userdetail :nth-child(1) {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width:480px) {
+    .userdetail {
+        text-align: center;
+        margin: 10px;
+    }
+}
+
+.btn2 {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: -20px;
+
+}
+
+.carddetail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.carddetail img {
+    width: 382px;
+    height: 235px;
+
+}
+
+@media screen and (max-width:480px) {
+    .carddetail img {
+        width: 350px;
+        height: 200px;
+    }
+
+    .carddetail {
+        margin-top: 20px;
+    }
+}
+
+.balance {
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    display: none;
+}
+
+.top {
+    position: relative;
+    left: 110px;
+    top: 90px;
+    font-size: xx-large;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    /* text-shadow: 5px gray; */
+}
+
+.middle {
+    position: relative;
+    top: 180px;
+    left: 250px;
+    color: red;
+
+    font-size: xx-large;
+
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    /* text-shadow: 5px gray; */
+}
+
+.middlebottom {
+    position: relative;
+    top: 230px;
+    left: -85px;
+    font-size: xx-large;
+
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    /* text-shadow: 5px gray; */
+}
+
+.bottomcont {
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 230px;
+    letter-spacing: 2px;
+    gap: 10px;
+    left: 70px;
+    font-weight: 700;
+    font-size: x-large;
+}
+
+.bottomcont div span {
+    display: block;
+}
+
+.bottomcont:first-child {
+    display: flex;
+    flex-direction: column;
+    display: block;
+}
