@@ -15,12 +15,7 @@
     font-size: 30px;
 }
 
-@media screen and (max-width:480px) {
-    .atmcontainercol1 {
 
-        flex-direction: column;
-    }
-}
 
 .atmcontainercol1 i {
     font-size: 100px;
@@ -36,13 +31,12 @@
 
 }
 
-@media screen and (max-width:480px) {
-    .btn {
-        flex-direction: row;
-    }
+.userdetail {
+    width: 80%;
 }
 
 .userdetail p {
+    text-transform: uppercase;
     color: white;
     display: block;
     font-size: 30px;
@@ -63,11 +57,11 @@
     text-transform: uppercase;
 }
 
-
 .carddetail {
     width: 80%;
     display: flex;
     margin: 0 auto;
+    text-shadow: 0 0 5px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -76,10 +70,8 @@
 .carddetail img {
     width: 382px;
     height: 235px;
-
+    margin-bottom: 20px;
 }
-
-
 
 .balance {
     font-size: 30px;
@@ -87,6 +79,7 @@
     color: white;
     display: none;
 }
+
 
 .top {
     position: relative;
@@ -97,22 +90,18 @@
     color: #fff;
     font-weight: 700;
     letter-spacing: 2px;
-
-    /* text-shadow: 5px gray; */
 }
 
 .middle {
     position: relative;
     top: 180px;
-    left: 140px;
+    left: 230px;
     color: red;
 
     font-size: xx-large;
     text-transform: uppercase;
     font-weight: 900;
     letter-spacing: 2px;
-
-
 }
 
 .middlebottom {
@@ -151,18 +140,56 @@
     display: block;
 }
 
+
+.btn2 {
+
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -20px;
+}
+
+.btn3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+.updatecont {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
+
 @media screen and (max-width:480px) {
     .atmcontainer {
         font-size: medium;
     }
 
-    .carddetail img {
-        width: 350px;
+    .updatecont {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    img {
+        min-width: 350px;
         height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 130px;
+
+
+        margin-bottom: 20px;
     }
 
     .carddetail {
@@ -170,16 +197,18 @@
     }
 
     .middlebottom {
-        left: -10px;
+        left: -30px;
     }
 
     .middle {
-        left: 250px;
+        left: 230px;
+        font-weight: 900;
+        font-size: x-large;
     }
 
     .top {
         text-transform: uppercase;
-        left: 120px;
+        left: 80px;
     }
 }
 
@@ -191,17 +220,17 @@
     }
 }
 
-.btn2 {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: -20px;
+@media screen and (max-width:480px) {
+    .atmcontainercol1 {
+
+        flex-direction: column;
+    }
 }
 
-.btn3 {
-    width: 80%;
-    text-align: center;
-
-    margin-bottom: 0px;
+@media screen and (max-width:480px) and (min-width:340px) {
+    .btn {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
 }

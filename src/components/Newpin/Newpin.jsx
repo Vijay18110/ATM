@@ -15,10 +15,11 @@ const NewPin = (props) => {
         if (user) {
             user[0].pin = pass;
         }
-        // console.log([...user])
-
         localStorage.setItem("users", JSON.stringify(user))
         Navigate('/done')
+    }
+    const close = () => {
+        Navigate('/')
     }
     return (
         <div className='containerchangepin'>
@@ -36,7 +37,7 @@ const NewPin = (props) => {
             {(cpass != pass && cpass.length > 0) && <h1>password not match </h1>}
 
             <div className='buttons'>
-                <Button2 return={pass.length == 0} logout={props.close} border="#a3213d" bgcolor="#a3213d" color="#1c191a" name="close"> </Button2>
+                <Button2 logout={close} border="#a3213d" bgcolor="#a3213d" color="#1c191a" name="close"> </Button2>
                 <Button2 return={(cpass !== pass || (cpass <= 0 && pass <= 0))} logout={updated} border="#21a32e" bgcolor="#21a32e" color="#a3213d" name="next"></Button2>
             </div>
 

@@ -77,10 +77,14 @@ const AtmCard = (props) => {
                         <span>{user.expiry}</span>
 
                     </div>
-                    <img src={cardimg} alt="" />
+                    <div className='updatecont'>
+
+
+                        <img src={cardimg} alt="" />
+                    </div>
                 </div>
             </div>
-            <div className='btn2' style={{}}>
+            <div className='updatecont' style={{}}>
                 <Button2 logout={update} name="update pin" width="200px" bgcolor="lightblue" border="1px solid lightblue"></Button2>
             </div>
         </div>

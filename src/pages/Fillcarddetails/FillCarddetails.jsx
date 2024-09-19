@@ -20,7 +20,7 @@ const FillCarddetails = (props) => {
             localStorage.setItem("users", JSON.stringify(users))
         }
     }, [users])
-    const savedata = () => {
+    const savedata = async () => {
         if (cardtype == "") {
             alert("fill all the fields carefully")
         }
@@ -51,7 +51,8 @@ const FillCarddetails = (props) => {
             alert("fill all the fields carefully")
         }
         else {
-            setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
+            await setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
+            onhandleclick();
         }
     }
     const onhandleclick = () => {
