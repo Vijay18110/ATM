@@ -1,10 +1,10 @@
-import React from 'react'
-import './button.css'
+import React from 'react';
+import './button.css';
 const Buttton = (props) => {
     return (
-        <button onClick={() => { props.fn(), props.x() }} style={{ backgroundColor: props.color, width: props.width }} className='btns'>
+        <button disabled={props.val ? false : true} onClick={() => { props.fn() }} style={{ backgroundColor: props.color, width: props.width }} className='btns'>
             {props.name}
         </button>
     )
 }
-export default Buttton
+export default Buttton;

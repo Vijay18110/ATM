@@ -4,37 +4,8 @@
 
 }
 
-.btns {
-  width: 16.5%;
-  margin-left: 5px;
-  padding: 10px;
-  border-radius: .5rem;
-
-}
 
 
-
-.buttons {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-
-.inputContainer {
-  margin: 0 auto;
-  width: 50%;
-  padding: 5px;
-  background-color: white;
-  border-radius: 5px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .error {
   width: 50%;
@@ -48,29 +19,34 @@
   margin-top: 10px;
 }
 
-.inputContainer .input {
-
+.inputContainer {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: large;
+}
+
+.inputContainer .input {
   width: 50%;
+  padding: 20px;
   border: none;
-  outline: none;
-  padding: 25px;
+  font-size: larger;
 }
 
-.input::placeholder {
-  text-align: center;
+.buttons {
+  width: 100%;
+  display: flex;
+  margin: 0 auto;
+  margin-top: 20px;
+  justify-content: center;
 }
 
-@media screen and (max-width:760px) {
-  .btns {
-    width: 100%;
-    padding: 15px;
-    margin-top: 10px;
+@media screen and (max-width:1000px) {
+  .buttons {
+    display: flex;
     flex-direction: column;
+
   }
 
   .inputContainer {
@@ -81,8 +57,33 @@
   .inputContainer .input {
     width: 100%;
     padding: 20px;
+    border: none;
+    font-size: larger;
   }
 
+}
 
+@media screen and (max-width:400px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    padding-right: 100px;
+
+  }
+
+  .inputContainer {
+    width: 400px;
+    padding-right: 100px;
+
+
+  }
+
+  .inputContainer .input {
+    width: 400px;
+    padding: 20px;
+    padding-right: 100px;
+    border: none;
+    font-size: small;
+  }
 
 }

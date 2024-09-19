@@ -1,5 +1,5 @@
 .atmcontainer {
-    width: 80%;
+    width: 60%;
     margin: 0 auto;
     margin-top: 3%;
 }
@@ -63,26 +63,11 @@
     text-transform: uppercase;
 }
 
-@media screen and (max-width:480px) {
-    .userdetail {
-        text-align: center;
-        margin: 10px;
-    }
-}
-
-.btn2 {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: -20px;
-
-}
 
 .carddetail {
-    width: 100%;
+    width: 80%;
     display: flex;
+    margin: 0 auto;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -94,16 +79,7 @@
 
 }
 
-@media screen and (max-width:480px) {
-    .carddetail img {
-        width: 350px;
-        height: 200px;
-    }
 
-    .carddetail {
-        margin-top: 20px;
-    }
-}
 
 .balance {
     font-size: 30px;
@@ -114,7 +90,8 @@
 
 .top {
     position: relative;
-    left: 110px;
+    left: 80px;
+    text-transform: uppercase;
     top: 90px;
     font-size: xx-large;
     color: #fff;
@@ -127,21 +104,21 @@
 .middle {
     position: relative;
     top: 180px;
-    left: 250px;
+    left: 140px;
     color: red;
 
     font-size: xx-large;
-
+    text-transform: uppercase;
     font-weight: 900;
     letter-spacing: 2px;
 
-    /* text-shadow: 5px gray; */
+
 }
 
 .middlebottom {
     position: relative;
     top: 230px;
-    left: -85px;
+    left: -110px;
     font-size: xx-large;
 
     font-weight: 900;
@@ -172,4 +149,59 @@
     display: flex;
     flex-direction: column;
     display: block;
+}
+
+@media screen and (max-width:480px) {
+    .atmcontainer {
+        font-size: medium;
+    }
+
+    .carddetail img {
+        width: 350px;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 130px;
+    }
+
+    .carddetail {
+        margin-top: 20px;
+    }
+
+    .middlebottom {
+        left: -10px;
+    }
+
+    .middle {
+        left: 250px;
+    }
+
+    .top {
+        text-transform: uppercase;
+        left: 120px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .userdetail {
+        text-align: center;
+        margin: 30px;
+        font-size: large;
+    }
+}
+
+.btn2 {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -20px;
+}
+
+.btn3 {
+    width: 80%;
+    text-align: center;
+
+    margin-bottom: 0px;
 }

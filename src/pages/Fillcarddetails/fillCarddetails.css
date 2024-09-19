@@ -38,9 +38,38 @@
      }
  }
 
- .btncard {
-     width: 50%;
-     margin: 0 auto;
+ .btn1 {
+     width: 120px;
+     height: 48px;
+     border-radius: 2rem;
+     margin-left: 10px;
+     background: #145226;
+     box-shadow: 0 0 10px snow;
+     border: 1px #145226;
+     color: white;
+     text-transform: uppercase;
+ }
+
+ .btn5 {
+     width: 120px;
+     height: 48px;
+     border-radius: 2rem;
+     margin-left: 10px;
+     background: #d70026;
+     border: 1px #d70026;
+     box-shadow: 0 0 10px snow;
+     text-transform: uppercase;
+     color: white;
+
+
+
+
+
+ }
+
+
+ .btncard1 {
+     width: 100%;
      margin-top: 10px;
      display: flex;
      flex-direction: row;

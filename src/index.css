@@ -13,3 +13,7 @@
   --fa-style-family-classic: "Font Awesome 6 Free";
   --fa-font-solid: normal 900 1em / 1 "Font Awesome 6 Free";
 }
+
+:disabled {
+  opacity: .5;
+}

@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './fillCarddetails.css'
-import Buttton from '../widgets/Buttton';
+import { useNavigate, useParams } from 'react-router-dom';
 const FillCarddetails = (props) => {
+    const navigate = useNavigate();
+    const allusers = JSON.parse(localStorage.getItem("users"));
+    const [users, setUsers] = useState(allusers || []);
     const [cardtype, setcardtype] = useState("");
     const [bankname, setbankname] = useState("");
     const [number, setnumber] = useState("");
@@ -10,26 +13,49 @@ const FillCarddetails = (props) => {
     const [expiry, setexpiry] = useState("");
     const [amount, setamount] = useState("");
     const [name, setname] = useState("");
-    const [cardnumber, setcardnumber] = useState("");
     const [bankcard, setbankcard] = useState("");
-    const obj = {
-        name, amount, bankcard, bankname, banktype, cardnumber, cardtype, expiry, pin, number
+    const params = useParams();
+    useEffect(() => {
+        if (users.length) {
+            localStorage.setItem("users", JSON.stringify(users))
+        }
+    }, [users])
+    const savedata = () => {
+        if (cardtype == "") {
+            alert("fill all the fields carefully")
+        }
+        else if (bankname === "") {
+
+            alert("fill all the fields carefully")
+        } else if (name === "") {
+
+            alert("fill all the fields carefully")
+        } else if (bankcard === "") {
+
+            alert("fill all the fields carefully")
+        } else if (banktype === "") {
+
+            alert("fill all the fields carefully")
+        }
+        else if (pin === "") {
+
+            alert("fill all the fields carefully")
+        } else if (number === "") {
+
+            alert("fill all the fields carefully")
+        } else if (expiry === "") {
+
+            alert("fill all the fields carefully")
+        } else if (amount === "") {
+
+            alert("fill all the fields carefully")
+        }
+        else {
+            setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
+        }
     }
-
-
-    const savedata = async () => {
-        const res = await fetch("http://localhost:3000/atmcarddata", {
-            method: "POST",
-            headers: { "Content-Type": "Application/json" },
-            body: JSON.stringify(
-                {
-                    name: name, amount: amount, bankcard: bankcard, bankname: bankname, banktype: banktype,
-                    cardnumber: cardnumber, cardtype: cardtype, expiry: expiry, pin: pin, number: number
-                }
-            )
-        })
-        const data = await res.json();
-        console.log(data.msg)
+    const onhandleclick = () => {
+        navigate('/')
     }
     return (
         <>
@@ -48,7 +74,7 @@ const FillCarddetails = (props) => {
                     <div className='form-group'>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="cardtype"> Card Numbar <span>*</span></label>
-                            <input onChange={(e) => setcardnumber(e.target.value)} type="text" id='cardtype' placeholder='XXXX XXXX XXXX 1111' />
+                            <input onChange={(e) => setcardnumber(e.target.value)} type="text" id='cardtype' readOnly placeholder={"xxxxxxxxxxxx" + params.card.substring(12, 16)} />
                         </div>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="bankcard"> expiry<span>*</span></label>
@@ -87,11 +113,10 @@ const FillCarddetails = (props) => {
                         </div>
                     </div>
                 </div>
-                <div className='btncard'>
-                    <Buttton obj={obj} x={props.showcard} fn={savedata} width="100px" name="SAVE" color="#21a32e"></Buttton>
-                    <Buttton fn={props.logout} width="100px" name="CLOSE" color="#a3213d"></Buttton>
+                <div className='btncard1'>
+                    <button className='btn1' onClick={savedata} color="#21a32e"> save</button>
+                    <button onClick={onhandleclick} className='btn5' fn={props.logout} color="#a3213d"> back</button>
                 </div>
-                {/* fn={props.showcard} */}
             </div >
         </>
     )
