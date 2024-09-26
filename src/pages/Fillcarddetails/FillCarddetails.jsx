@@ -109,7 +109,7 @@ const FillCarddetails = (props) => {
         navigate('/pingenerated', { replace: true })
     }
     const logout = () => {
-        navigate('/', { replace: true });
+        navigate('/atmcards', { replace: true });
     }
     return (
         <>

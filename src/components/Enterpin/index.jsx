@@ -21,7 +21,7 @@ const Enterpin = (props) => {
         const existinguser = users.find((item) => item.cardnumber === params.card && item.pin === text);
         if (existinguser) {
             if (existinguser.pin === text) {
-                navigate('/atm/' + params.card + "/" + +text);
+                navigate('/atmcards');
             }
         }
         else {

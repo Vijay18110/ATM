@@ -1,14 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './atccard.css'
-import { FaUserCircle } from "react-icons/fa";
-import Button2 from '../../widgets/Button2';
 import cardimg from '../../assets/card.png'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import Buttton from '../../widgets/Buttton';
+import Nav from '../Navbar';
 const AtmCard = (props) => {
     const [user, setUser] = useState([]);
-    const params = useParams();
-    const location = useLocation();
     const logout = (card) => {
         const allusers = JSON.parse(localStorage.getItem("users"));
         const filteredusers = allusers.filter((item) => item.cardnumber !== card)
@@ -43,57 +39,61 @@ const AtmCard = (props) => {
         navigate('/', { replace: true })
     }
     return (
-        <div style={{ display: "flex", gap: "30px", flexWrap: "wrap", justifyContent: "space-evenly" }}>
-            {
-                user.map((user, index) => {
-                    return (
-                        <div key={index} className='atmcontainercol1'>
-                            <div className='atmcontainer'>
-                                <i><FaUserCircle></FaUserCircle></i>
-                                <div className='btn'>
-                                    <Button2 logout={() => logout(user.cardnumber)} name="delete" bgcolor="#d70026" border="1px solid #d70026"></Button2>
-                                    <Button2 logout={() => withdraw(user.cardnumber)} name="withdraw" bgcolor="#145226" border="1px solid #145226"></Button2>
+        <>
+            <Nav></Nav>
+            <div style={{ display: "flex", marginTop: "100px", gap: "30px", flexWrap: "wrap", justifyContent: "space-evenly" }}>
+                {
+                    user && user.map((user, index) => {
+                        return (
+                            <div key={index} className='atmcontainercol1'>
+                                <div className='atmcontainer'>
+                                    {/* <i><FaUserCircle></FaUserCircle></i> */}
+                                    {/* <div className='btn'>
+                                        <Button2 logout={() => logout(user.cardnumber)} name="delete" bgcolor="#d70026" border="1px solid #d70026"></Button2>
+                                        <Button2 logout={() => withdraw(user.cardnumber)} name="withdraw" bgcolor="#145226" border="1px solid #145226"></Button2>
+                                    </div> */}
                                 </div>
-                            </div>
-                            <div class="userdetail">
-                                <p class="phone">{user.name}</p>
-                                <p class="phone">{user.number}</p>
-                                <p class="bank">{user.bankcard}</p>
-                                <p class="type">{user.banktype}</p>
-                            </div>
+                                {/* <div className="userdetail">
+                                    <p className="phone">{user.name}</p>
+                                    <p className="phone">{user.number}</p>
+                                    <p className="bank">{user.bankcard}</p>
+                                    <p className="type">{user.banktype}</p>
+                                </div> */}
 
-                            <div className='carddetail'>
-                                <div>
-                                    <span className='top'>{user.bankname}</span>
-                                    <span className='middle'>{user.cardtype}</span>
-                                    <span className='middlebottom'>{user.cardnumber}</span>
+                                <div className='carddetail'>
+                                    <div>
+                                        <span className='top'>{user.bankname}</span>
+                                        <span className='middle'>{user.cardtype}</span>
+                                        <span className='middlebottom'>{user.cardnumber}</span>
 
-                                    <div className='bottomcont'>
-                                        <div>
-                                            <span>VALID</span> <span>THRU</span>
+                                        <div className='bottomcont'>
+                                            <div>
+                                                <span>VALID</span> <span>THRU</span>
+                                            </div>
+                                            <span>{user.expiry}</span>
+
                                         </div>
-                                        <span>{user.expiry}</span>
-
-                                    </div>
-                                    <div className='img'>
-                                        <img src={cardimg} alt="" />
+                                        <div className='img'>
+                                            <img src={cardimg} alt="" />
+                                        </div>
                                     </div>
                                 </div>
+                                {/* <div className='updatecont' style={{}}>
+                                    <Button2 logout={() => check(user.cardnumber)} name={cardno == user.cardnumber && toggle ? user.amount : "balance"} width="200px" bgcolor="#166534" border="1px solid #166534"></Button2>
+                                    <Button2 logout={() => update(user.cardnumber, user.pin)} name="update pin" width="200px" bgcolor="#78350F" border="1px solid lightblue"></Button2>
+                                </div> */}
                             </div>
-                            <div className='updatecont' style={{}}>
-                                <Button2 logout={() => check(user.cardnumber)} name={cardno == user.cardnumber && toggle ? user.amount : "balance"} width="200px" bgcolor="#166534" border="1px solid #166534"></Button2>
-                                <Button2 logout={() => update(user.cardnumber, user.pin)} name="update pin" width="200px" bgcolor="#78350F" border="1px solid lightblue"></Button2>
-                            </div>
-                        </div>
-                    )
-                })
-            }
-            <div style={{ width: "100%", display: "flex", justifyContent: "center", textAlign: "center" }}>
-                <Button2 logout={addcard} bgcolor="#d70026" border="1px solid #d70026" width="50%" name="Add Card"></Button2>
-            </div>
+                        )
+                    })
+                }
+                {/* <div style={{ width: "100%", display: "flex", justifyContent: "center", textAlign: "center" }}>
+                    <Button2 logout={addcard} bgcolor="#d70026" border="1px solid #d70026" width="50%" name="Add Card"></Button2>
+                </div> */}
 
-        </div>
+            </div>
+        </>
     )
+
 }
 
 export default AtmCard

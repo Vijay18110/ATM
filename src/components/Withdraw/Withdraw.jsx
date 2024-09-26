@@ -5,29 +5,32 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 const Withdraw = () => {
     const params = useParams()
-    const [amount, setAmount] = useState(0);
+    const [bank, SetBank] = useState("");
     const Navigate = useNavigate()
-    const fncontinue = () => {
+    const fncontinue = async () => {
         var allusers = JSON.parse(localStorage.getItem("users"));
-        var user = allusers.filter((data) => { return (data.cardnumber === params.card) })
+        var user = allusers.filter((data) => { return (data.bankname === bank) });
         var updatedusers;
-        var userremaining = allusers.filter((data) => { return ((data.cardnumber !== params.card)) })
-
-
+        var userremaining = allusers.filter((data) => { return ((data.bankname !== bank)) })
         if (user) {
             if (user[0].amount < text) {
                 alert("insufficient balance")
+                Navigate('/atmcards')
             }
-            user[0].amount = user[0].amount - text;
-            console.log(user);
+            else {
 
-            updatedusers = [...userremaining, ...user];
+                user[0].amount = user[0].amount - text;
+                console.log(user);
+                updatedusers = [...userremaining, ...user];
+                await localStorage.setItem("users", JSON.stringify(updatedusers));
+                Navigate('/withrawdone')
+            }
         }
-        localStorage.setItem("users", JSON.stringify(updatedusers));
-        Navigate('/withrawdone')
+
     }
 
     const [text, settext] = useState(0);
+    const [users, setUser] = useState([]);
     const top = useRef();
     const clear = () => {
         const len = text.length;
@@ -46,9 +49,24 @@ const Withdraw = () => {
             setCheckamount(false)
         }
     }
+    useEffect(() => {
+        setUser(JSON.parse(localStorage.getItem("users")));
+    }, [])
     return (
         <div className='container'>
             <div ref={top} >
+                <div style={{ marginBottom: "10px" }} className='inputContainer'>
+                    <select onChange={(e) => SetBank(e.target.value)} className='input' name="" id="">
+                        <option value="">select bank</option>
+                        {
+                            users && users.map((item) => {
+                                return (
+                                    <option value={item.bankname}>{item.bankname}</option>
+                                )
+                            })
+                        }
+                    </select>
+                </div>
                 <div className='inputContainer'>
                     <input onKeyDown={(e) => check(e)} value={text} onChange={(e) => settext(e.target.value)} className='input' type="number" name="" id="" placeholder='Enter Amount to withdraw' />
                 </div>

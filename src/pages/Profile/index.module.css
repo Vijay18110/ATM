@@ -1,0 +1,40 @@
+.Profilecont {
+    display: flex;
+    width: 100%;
+    box-shadow: 0 0 10px rgb(158, 150, 150);
+    padding: 3rem 5rem;
+    /* background-color: red; */
+    justify-content: center;
+    align-items: center;
+}
+
+.userdetail {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userdetail p {
+    text-transform: uppercase;
+    color: white;
+    display: block;
+    font-size: 30px;
+    margin-bottom: 1px;
+}
+
+.userdetail :last-child {
+    margin-bottom: 5px;
+    color: yellow;
+}
+
+.userdetail :nth-child(3) {
+    color: red;
+}
+
+.userdetail :nth-child(1) {
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
