@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useRef, useState } from 'react'
-import '../Update/Update.css'
+import '../Update/index.css'
 import Button2 from '../../widgets/Button2'
 import { useNavigate, useParams } from 'react-router-dom'
 const NewPin = (props) => {
