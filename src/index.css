@@ -6,12 +6,31 @@
 }
 
 :root {
-  background-color: #2755d6;
+  /* background-image: url('download2.jpeg'); */
+  background-color: hwb(214 14% 10%);
+  text-shadow: 0 0 10px white;
+  /* background-color:#; */
+  /* background-image: url('download1.jpeg'); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
 }
 
 :root {
   --fa-style-family-classic: "Font Awesome 6 Free";
   --fa-font-solid: normal 900 1em / 1 "Font Awesome 6 Free";
+}
+
+button,
+input {
+  outline: none;
+  box-shadow: 0 0 10px;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 :disabled {

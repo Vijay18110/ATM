@@ -4,89 +4,94 @@ import { FaUserCircle } from "react-icons/fa";
 import Button2 from '../../widgets/Button2';
 import cardimg from '../../assets/card.png'
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import Buttton from '../../widgets/Buttton';
 const AtmCard = (props) => {
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState([]);
     const params = useParams();
     const location = useLocation();
-    const logout = () => {
-        navigate('/')
+    const logout = (card) => {
+        const allusers = JSON.parse(localStorage.getItem("users"));
+        const filteredusers = allusers.filter((item) => item.cardnumber !== card)
+        localStorage.setItem("users", JSON.stringify(filteredusers));
     }
-    const withdraw = () => {
-        navigate('/withdraw/' + user.cardnumber);
+    const withdraw = (card) => {
+        navigate('/withdraw/' + card, { replace: true });
     }
     useEffect(() => {
-        const users = JSON.parse(localStorage.getItem('users'));
-
-
-        setUser(users.find((item) => item.cardnumber === params.card && item.pin === params.pin))
-    }, [])
-
-
+        setUser(JSON.parse(localStorage.getItem('users')));
+    }, []);
     const refbalance = useRef();
     const refhide = useRef();
     const refhideclose = useRef()
     const navigate = useNavigate()
-    const showbalance = () => {
-        refbalance.current.style.display = "block";
-        refhide.current.style.display = "none"
-        refhideclose.current.style.display = "block"
+    const [cardno, setCardno] = useState(0);
+    const [toggle, setToggle] = useState(false);
+    const check = (card) => {
+        setCardno(card)
+        setToggle(!toggle)
+        // refbalance.current.style.display = "block";
+        // refhide.current.style.display = "none"
+        // refhideclose.current.style.display = "block"
     }
     const hidebalance = () => {
-        refhide.current.style.display = "block"
-        refbalance.current.style.display = "none";
-        refhideclose.current.style.display = "none"
+        alert("no")
     }
-    const update = () => {
-        navigate('/update/pin/' + user.cardnumber + "/" + user.pin)
+    const update = (card, pin) => {
+        navigate('/confirm/oldpin/' + card + "/" + pin, { replace: true });
+    }
+    const addcard = () => {
+        navigate('/', { replace: true })
     }
     return (
-        <div className='atmcontainer'>
-            <div className='atmcontainercol1'>
-                <i><FaUserCircle></FaUserCircle></i>
-                <div className='btn'>
-                    <Button2 logout={logout} name="logout" bgcolor="#d70026" border="1px solid #d70026"></Button2>
-                    <Button2 logout={withdraw} name="withdraw" bgcolor="#145226" border="1px solid #145226"></Button2>
-                </div>
-            </div>
-            <div class="userdetail">
-                <p class="phone">{user.name}</p>
+        <div style={{ display: "flex", gap: "30px", flexWrap: "wrap", justifyContent: "space-evenly" }}>
+            {
+                user.map((user, index) => {
+                    return (
+                        <div key={index} className='atmcontainercol1'>
+                            <div className='atmcontainer'>
+                                <i><FaUserCircle></FaUserCircle></i>
+                                <div className='btn'>
+                                    <Button2 logout={() => logout(user.cardnumber)} name="delete" bgcolor="#d70026" border="1px solid #d70026"></Button2>
+                                    <Button2 logout={() => withdraw(user.cardnumber)} name="withdraw" bgcolor="#145226" border="1px solid #145226"></Button2>
+                                </div>
+                            </div>
+                            <div class="userdetail">
+                                <p class="phone">{user.name}</p>
+                                <p class="phone">{user.number}</p>
+                                <p class="bank">{user.bankcard}</p>
+                                <p class="type">{user.banktype}</p>
+                            </div>
 
-                <p class="phone">{user.number}</p>
-                <p class="bank">{user.bankcard}</p>
-                <p class="type">{user.banktype}</p>
-            </div>
-            <div className='btn3 balance' ref={refbalance}>
-                Account Balance: ₹ {user.amount}
-            </div>
-            <div className='btn3' onClick={showbalance} ref={refhide}>
-                <Button2 name="check balance" width="220px" bgcolor="#edb82d" border="1px solid #edb82d"></Button2>
-            </div>
-            <div className='btn3' onClick={hidebalance} ref={refhideclose} style={{ display: "none" }}>
-                <Button2 name="close" width="200px" bgcolor="#d70026" border="1px solid #d70026"></Button2>
-            </div>
-            <div className='carddetail'>
-                <div>
-                    <span className='top'>{user.bankname}</span>
-                    <span className='middle'>{user.cardtype}</span>
-                    <span className='middlebottom'>{user.cardnumber}</span>
-                    <div className='bottomcont'>
-                        <div>
-                            <span>VALID</span> <span>THRU</span>
+                            <div className='carddetail'>
+                                <div>
+                                    <span className='top'>{user.bankname}</span>
+                                    <span className='middle'>{user.cardtype}</span>
+                                    <span className='middlebottom'>{user.cardnumber}</span>
 
+                                    <div className='bottomcont'>
+                                        <div>
+                                            <span>VALID</span> <span>THRU</span>
+                                        </div>
+                                        <span>{user.expiry}</span>
+
+                                    </div>
+                                    <div className='img'>
+                                        <img src={cardimg} alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='updatecont' style={{}}>
+                                <Button2 logout={() => check(user.cardnumber)} name={cardno == user.cardnumber && toggle ? user.amount : "balance"} width="200px" bgcolor="#166534" border="1px solid #166534"></Button2>
+                                <Button2 logout={() => update(user.cardnumber, user.pin)} name="update pin" width="200px" bgcolor="#78350F" border="1px solid lightblue"></Button2>
+                            </div>
                         </div>
-                        <span>{user.expiry}</span>
-
-                    </div>
-                    <div className='updatecont'>
-
-
-                        <img src={cardimg} alt="" />
-                    </div>
-                </div>
+                    )
+                })
+            }
+            <div style={{ width: "100%", display: "flex", justifyContent: "center", textAlign: "center" }}>
+                <Button2 logout={addcard} bgcolor="#d70026" border="1px solid #d70026" width="50%" name="Add Card"></Button2>
             </div>
-            <div className='updatecont' style={{}}>
-                <Button2 logout={update} name="update pin" width="200px" bgcolor="lightblue" border="1px solid lightblue"></Button2>
-            </div>
+
         </div>
     )
 }

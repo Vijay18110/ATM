@@ -1,11 +1,11 @@
  .container1 {
      margin: 0 auto;
-     margin-top: 5%;
-     width: 60%;
+     margin-top: 2%;
+     width: 40%;
 
 
      text-align: center;
-     background: rgb(42, 47, 51);
+     background: hwb(51 8% 1%);
      border-radius: 1rem;
      padding: 30px 10px;
  }
@@ -20,12 +20,17 @@
 
  .container2 {
      margin: 0 auto;
-     margin-top: 5%;
-     width: 60%;
+     margin-top: 2%;
+     width: 40%;
      text-align: center;
      border-radius: 1rem;
      padding: 30px 10px;
-     background: gray;
+     background: #9c0c0c;
+ }
+
+ .container2 .form-lable {
+     color: hwb(51 8% 1%);
+
  }
 
  @media screen and (max-width:480px) and (min-width:200px) {
@@ -84,7 +89,7 @@
 
  .form-lable {
      text-align: start;
-     color: gold;
+     color: #ce0909;
      font-size: 20px;
      margin: 10px;
      display: block;

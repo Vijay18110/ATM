@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './fillCarddetails.css'
 import { useNavigate, useParams } from 'react-router-dom';
 const FillCarddetails = (props) => {
@@ -15,48 +15,61 @@ const FillCarddetails = (props) => {
     const [name, setname] = useState("");
     const [bankcard, setbankcard] = useState("");
     const params = useParams();
+    const bankName = useRef();
     useEffect(() => {
         if (users.length) {
             localStorage.setItem("users", JSON.stringify(users))
         }
     }, [users])
     const savedata = async () => {
-        if (cardtype == "") {
-            alert("fill all the fields carefully")
+        const allusers = JSON.parse(localStorage.getItem('users'))
+        var user;
+        if (allusers) {
+            user = allusers.filter((item) => item.bankname === bankname);
         }
-        else if (bankname === "") {
-
-            alert("fill all the fields carefully")
-        } else if (name === "") {
-
-            alert("fill all the fields carefully")
-        } else if (bankcard === "") {
-
-            alert("fill all the fields carefully")
-        } else if (banktype === "") {
-
-            alert("fill all the fields carefully")
-        }
-        else if (pin === "") {
-
-            alert("fill all the fields carefully")
-        } else if (number === "") {
-
-            alert("fill all the fields carefully")
-        } else if (expiry === "") {
-
-            alert("fill all the fields carefully")
-        } else if (amount === "") {
-
-            alert("fill all the fields carefully")
+        if (user.length) {
+            alert("you have already a ATM card for this bank. please enter another bank")
+            bankName.current.value = "";
         }
         else {
-            await setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
-            onhandleclick();
+            if (cardtype == "") {
+                alert("fill all the fields carefully")
+            }
+            else if (bankname === "") {
+
+                alert("fill all the fields carefully")
+            } else if (name === "") {
+
+                alert("fill all the fields carefully")
+            } else if (bankcard === "") {
+
+                alert("fill all the fields carefully")
+            } else if (banktype === "") {
+
+                alert("fill all the fields carefully")
+            }
+            else if (pin === "") {
+
+                alert("fill all the fields carefully")
+            } else if (number === "") {
+
+                alert("fill all the fields carefully")
+            } else if (expiry === "") {
+
+                alert("fill all the fields carefully")
+            } else if (amount === "") {
+
+                alert("fill all the fields carefully")
+            }
+            else {
+                await setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
+                onhandleclick();
+            }
         }
+
     }
     const onhandleclick = () => {
-        navigate('/')
+        navigate('/pingenerated', { replace: true })
     }
     return (
         <>
@@ -79,7 +92,7 @@ const FillCarddetails = (props) => {
                         </div>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="bankcard"> expiry<span>*</span></label>
-                            <input onChange={(e) => setexpiry(e.target.value)} type="date" id='bankcard' placeholder='mm/yyyy' />
+                            <input onChange={(e) => setexpiry(e.target.value)} type="text" id='bankcard' placeholder='mm/yyyy' />
                         </div>
                     </div> <div className='form-group'>
                         <div className='form-control'>
@@ -88,7 +101,7 @@ const FillCarddetails = (props) => {
                         </div>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="bankcard">   phone<span>*</span></label>
-                            <input onChange={(e) => setnumber(e.target.value)} type="tel" id='bankcard' placeholder='XXXXXXXX 07' />
+                            <input onChange={(e) => setnumber(e.target.value)} type="number" id='bankcard' placeholder='XXXXXXXX 07' />
                         </div>
                     </div>
                 </div>
@@ -96,11 +109,11 @@ const FillCarddetails = (props) => {
                     <div className='form-group'>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="cardtype"> Bank Name<span>*</span></label>
-                            <input onChange={(e) => setbankname(e.target.value)} type="text" id='cardtype' placeholder='Bank Of India etc..' />
+                            <input ref={bankName} onChange={(e) => setbankname(e.target.value)} type="text" id='cardtype' placeholder='Bank Of India etc..' />
                         </div>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="bankcard">  Pin<span>*</span></label>
-                            <input onChange={(e) => setpin(e.target.value)} type="tel" id='bankcard' placeholder='XXXX' />
+                            <input onChange={(e) => setpin(e.target.value)} type="number" id='bankcard' placeholder='XXXX' />
                         </div>
                     </div>
                     <div className='form-group'>
@@ -110,7 +123,7 @@ const FillCarddetails = (props) => {
                         </div>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="bankcard">  Amount<span>*</span></label>
-                            <input onChange={(e) => setamount(e.target.value)} type="text" id='bankcard' placeholder='₹XXXXXXXX' />
+                            <input onChange={(e) => setamount(e.target.value)} type="number" id='bankcard' placeholder='₹XXXXXXXX' />
                         </div>
                     </div>
                 </div>
@@ -122,5 +135,4 @@ const FillCarddetails = (props) => {
         </>
     )
 }
-
-export default FillCarddetails
+export default FillCarddetails;

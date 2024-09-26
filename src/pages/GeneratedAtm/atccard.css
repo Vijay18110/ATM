@@ -1,21 +1,20 @@
 .atmcontainer {
-    width: 60%;
-    margin: 0 auto;
-    margin-top: 3%;
+    width: 350px;
+    margin-left: 20px;
+    margin-top: 1%;
 }
 
-
 .atmcontainercol1 {
-    width: 100%;
-    display: flex;
+    width: 400px;
+    /* display: flex; */
     align-items: center;
     flex-direction: row;
+    /* background-color: red; */
+    text-align: center;
     justify-content: space-between;
     color: white;
     font-size: 30px;
 }
-
-
 
 .atmcontainercol1 i {
     font-size: 100px;
@@ -24,15 +23,19 @@
 }
 
 .btn {
-    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 12px;
-    height: 70px;
-    width: 100px;
-
+    height: 30px;
 }
 
 .userdetail {
-    width: 80%;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .userdetail p {
@@ -40,10 +43,11 @@
     color: white;
     display: block;
     font-size: 30px;
-    margin: 5px;
+    margin-bottom: 1px;
 }
 
 .userdetail :last-child {
+    margin-bottom: 5px;
     color: yellow;
 }
 
@@ -58,9 +62,9 @@
 }
 
 .carddetail {
-    width: 80%;
+    width: 400px;
     display: flex;
-    margin: 0 auto;
+    margin-top: -80px;
     text-shadow: 0 0 5px;
     justify-content: center;
     align-items: center;
@@ -70,7 +74,7 @@
 .carddetail img {
     width: 382px;
     height: 235px;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
 }
 
 .balance {
@@ -79,7 +83,6 @@
     color: white;
     display: none;
 }
-
 
 .top {
     position: relative;
@@ -95,9 +98,8 @@
 .middle {
     position: relative;
     top: 180px;
-    left: 230px;
+    left: 210px;
     color: red;
-
     font-size: xx-large;
     text-transform: uppercase;
     font-weight: 900;
@@ -141,23 +143,8 @@
 }
 
 
-.btn2 {
-
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: -20px;
-}
-
-.btn3 {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 0px;
-}
-
 .updatecont {
-    width: 80%;
+    width: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,8 +152,20 @@
     margin: 0 auto;
 }
 
+.img {
+    .updatecont {
+        width: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-top: 0px;
+    }
+}
 
 
+/*
 @media screen and (max-width:480px) {
     .atmcontainer {
         font-size: medium;
@@ -179,24 +178,20 @@
         align-items: center;
         margin: 0 auto;
         text-align: center;
-    }
+    } */
 
-    img {
+/* img {
         min-width: 350px;
         height: 250px;
         display: flex;
         justify-content: center;
         align-items: center;
-
-
         margin-bottom: 20px;
-    }
+    } */
 
-    .carddetail {
-        margin-top: 20px;
-    }
 
-    .middlebottom {
+
+/* .middlebottom {
         left: -30px;
     }
 
@@ -209,28 +204,19 @@
     .top {
         text-transform: uppercase;
         left: 80px;
-    }
-}
+    } */
+/* } */
 
-@media screen and (max-width:480px) {
+/* @media screen and (max-width:480px) {
     .userdetail {
         text-align: center;
-        margin: 30px;
-        font-size: large;
+        margin-bottom: 10px;
+        font-size: small;
     }
-}
+} */
 
-@media screen and (max-width:480px) {
+/* @media screen and (max-width:480px) {
     .atmcontainercol1 {
-
         flex-direction: column;
     }
-}
-
-@media screen and (max-width:480px) and (min-width:340px) {
-    .btn {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-    }
-}
+} */

@@ -16,6 +16,11 @@
     font-size: xx-large;
 }
 
+.buttonscont {
+    display: flex;
+    margin-top: 20px;
+}
+
 .form-group2 {
     display: flex;
     flex-direction: column;

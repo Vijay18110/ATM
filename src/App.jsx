@@ -7,7 +7,10 @@ import AtmCard from './pages/GeneratedAtm/AtmCard'
 import Enterpin from './components/Enterpin'
 import NewPin from './components/Newpin/Newpin'
 import Done from './components/Done/Done'
+import Update from './components/Update/Update'
 import Withdraw from './components/Withdraw/Withdraw'
+import ResetNumber from './components/resetNumber'
+
 
 function App() {
   return (
@@ -18,22 +21,17 @@ function App() {
           <Route path='/pin/:card' element={<Enterpin></Enterpin>} />
           <Route path='/withdraw/:card' element={<Withdraw></Withdraw>} />
           <Route path='/done' element={<Done val="pin updated"></Done>} />
-
+          <Route path='/confirm/oldpin/:card/:pin' element={<Update val="pin updated"></Update>} />
+          <Route path='/wrongpin/:card' element={<Done logo="error.png" val="remaining 3"></Done>} />
+          <Route path='/withrawdone' element={<Done logo="success.png" val="Your amount has been debited :)"></Done>} />
+          <Route path='/pingenerated' element={<Done logo="success.png" val="Your Pin Has Been Generated :)"></Done>} />
           <Route path='/update/pin/:card/:pin' element={<NewPin></NewPin>} />
-
-
+          <Route path='/resetpin' element={<ResetNumber></ResetNumber>} />
           <Route path='/atm/:card/:pin' element={<AtmCard ></AtmCard>} />
           <Route path='/fill/details/:card' element={<FillCarddetails></FillCarddetails>} />
         </Routes>
       </BrowserRouter>
 
-      {/* {val === "fill" && <FillCarddetails showcard={showcard} logout={logout} fncontinue={fncontinue} showcard={showcard} ></FillCarddetails>}
-      {val === "card" && <AtmCard update={update} logout={logout} withdraw={withdraw}  ></AtmCard>}
-      {val === "update" && <Update next={next} close={close} ></Update>}
-      {val === "newpin" && <NewPin close={logout} logout={done}  ></NewPin>}
-      {val === "Done" && <Done val="done" logout={logout} ></Done>}
-      {val === "withdraw" && <Withdraw fncontinue={withdrawdone} ></Withdraw>}
-      {val === "withdrawdone" && <Done logout={logout} val="Thank You For Transaction :)" ></Done>} */}
     </>
   )
 }
