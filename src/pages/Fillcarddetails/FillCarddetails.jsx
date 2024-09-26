@@ -22,48 +22,86 @@ const FillCarddetails = (props) => {
         }
     }, [users])
     const savedata = async () => {
-        // const allusers = JSON.parse(localStorage.getItem('users'))
-        // var user;
-        // if (allusers.length) {
-        //     user = allusers.filter((item) => item.bankname === bankname);
-        //     if (user.length) {
-        //         alert("you have already a ATM card for this bank. please enter another bank")
-        //         bankName.current.value = "";
-        //     }
-        // }
+        const allusers = JSON.parse(localStorage.getItem('users'))
+        var user;
+        if (allusers.length) {
+            user = allusers.filter((item) => item.bankname === bankname);
+            if (user.length) {
+                alert("you have already a ATM card for this bank. please enter another bank")
+                bankName.current.value = "";
+            }
+            else {
 
-        if (cardtype == "") {
-            alert("fill all the fields carefully")
-        }
-        else if (bankname === "") {
+                if (cardtype == "") {
+                    alert("fill all the fields carefully")
+                }
+                else if (bankname === "") {
 
-            alert("fill all the fields carefully")
-        } else if (name === "") {
+                    alert("fill all the fields carefully")
+                } else if (name === "") {
 
-            alert("fill all the fields carefully")
-        } else if (bankcard === "") {
+                    alert("fill all the fields carefully")
+                } else if (bankcard === "") {
 
-            alert("fill all the fields carefully")
-        } else if (banktype === "") {
+                    alert("fill all the fields carefully")
+                } else if (banktype === "") {
 
-            alert("fill all the fields carefully")
-        }
-        else if (pin === "") {
+                    alert("fill all the fields carefully")
+                }
+                else if (pin === "") {
 
-            alert("fill all the fields carefully")
-        } else if (number === "") {
+                    alert("fill all the fields carefully")
+                } else if (number === "") {
 
-            alert("fill all the fields carefully")
-        } else if (expiry === "") {
+                    alert("fill all the fields carefully")
+                } else if (expiry === "") {
 
-            alert("fill all the fields carefully")
-        } else if (amount === "") {
+                    alert("fill all the fields carefully")
+                } else if (amount === "") {
 
-            alert("fill all the fields carefully")
+                    alert("fill all the fields carefully")
+                }
+                else {
+                    await setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
+                    onhandleclick();
+                }
+            }
         }
         else {
-            await setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
-            onhandleclick();
+
+            if (cardtype == "") {
+                alert("fill all the fields carefully")
+            }
+            else if (bankname === "") {
+
+                alert("fill all the fields carefully")
+            } else if (name === "") {
+
+                alert("fill all the fields carefully")
+            } else if (bankcard === "") {
+
+                alert("fill all the fields carefully")
+            } else if (banktype === "") {
+
+                alert("fill all the fields carefully")
+            }
+            else if (pin === "") {
+
+                alert("fill all the fields carefully")
+            } else if (number === "") {
+
+                alert("fill all the fields carefully")
+            } else if (expiry === "") {
+
+                alert("fill all the fields carefully")
+            } else if (amount === "") {
+
+                alert("fill all the fields carefully")
+            }
+            else {
+                await setUsers([...users, { cardtype: cardtype, bankname: bankname, number: number, pin: pin, banktype: banktype, expiry: expiry, amount: amount, name: name, cardnumber: params.card, bankcard: bankcard }])
+                onhandleclick();
+            }
         }
 
 
