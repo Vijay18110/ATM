@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import './update.css'
+import './index.css'
 import Button2 from '../../widgets/Button2'
 import { useNavigate, useParams } from 'react-router-dom'
 const Update = (props) => {
