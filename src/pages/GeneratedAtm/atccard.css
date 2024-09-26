@@ -71,11 +71,19 @@
     text-align: center;
 }
 
+body {
+    min-width: 400px;
+}
+
 .carddetail img {
-    width: 382px;
+    width: 380px;
     height: 235px;
     margin-bottom: 2px;
 }
+
+
+
+
 
 .balance {
     font-size: 30px;
@@ -88,7 +96,7 @@
     position: relative;
     left: 80px;
     text-transform: uppercase;
-    top: 90px;
+    top: 120px;
     font-size: xx-large;
     color: #fff;
     font-weight: 700;

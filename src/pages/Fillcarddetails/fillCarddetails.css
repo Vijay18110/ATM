@@ -3,7 +3,7 @@
      margin-top: 2%;
      width: 40%;
 
-
+     box-shadow: 0 0 10px white;
      text-align: center;
      background: hwb(51 8% 1%);
      border-radius: 1rem;
@@ -19,6 +19,8 @@
  }
 
  .container2 {
+     box-shadow: 0 0 10px white;
+
      margin: 0 auto;
      margin-top: 2%;
      width: 40%;
@@ -35,11 +37,11 @@
 
  @media screen and (max-width:480px) and (min-width:200px) {
      .container1 {
-         width: 80%;
+         width: 95%;
      }
 
      .container2 {
-         width: 80%;
+         width: 95%;
      }
  }
 
