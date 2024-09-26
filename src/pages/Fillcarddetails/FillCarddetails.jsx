@@ -23,15 +23,15 @@ const FillCarddetails = (props) => {
     }, [users])
     const savedata = async () => {
         const allusers = JSON.parse(localStorage.getItem('users'))
-        var user;
-        if (allusers.length) {
-            user = allusers.filter((item) => item.bankname === bankname);
-            if (user.length) {
+        var user = null;
+        if (allusers) {
+
+            user = allusers.find((item) => item.bankname === bankname);
+            if (user) {
                 alert("you have already a ATM card for this bank. please enter another bank")
                 bankName.current.value = "";
             }
             else {
-
                 if (cardtype == "") {
                     alert("fill all the fields carefully")
                 }
@@ -68,7 +68,6 @@ const FillCarddetails = (props) => {
             }
         }
         else {
-
             if (cardtype == "") {
                 alert("fill all the fields carefully")
             }
@@ -154,7 +153,8 @@ const FillCarddetails = (props) => {
                         </div>
                         <div className='form-control'>
                             <label className='form-lable' htmlFor="bankcard">  Pin<span>*</span></label>
-                            <input onChange={(e) => setpin(e.target.value)} type="number" id='bankcard' placeholder='XXXX' />
+                            <input value={pin} onChange={(e) => setpin(e.target.value)} type="number" id='bankcard' placeholder='XXXX' />
+                            <div style={{ width: "100%", height: "10px", color: "#fff" }}>{pin.length != 4 && pin.length > 0 ? <p>enter pin only 4 digits</p> : ""}</div>
                         </div>
                     </div>
                     <div className='form-group'>
@@ -169,7 +169,7 @@ const FillCarddetails = (props) => {
                     </div>
                 </div>
                 <div className='btncard1'>
-                    <button className='btn1' onClick={savedata} color="#21a32e"> save</button>
+                    <button disabled={pin.length != 4} className='btn1' onClick={savedata} color="#21a32e"> save</button>
                     <button onClick={logout} className='btn5' color="#a3213d"> back</button>
                 </div>
             </div >
