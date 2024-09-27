@@ -37,11 +37,11 @@
 
 .inputContainer .input {
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   justify-content: center;
   font-size: x-large;
   text-align: center;
-  box-shadow: 0 0 7px white;
+  /* box-shadow: 0 0 7px white; */
   border: none;
   font-size: larger;
 }
@@ -68,34 +68,8 @@
 
   .inputContainer .input {
     width: 100%;
-    padding: 20px;
     border: none;
     font-size: larger;
   }
 
 }
-
-/* @media screen and (max-width:400px) {
-  .buttons {
-    display: flex;
-    flex-direction: column;
-    padding-right: 100px;
-
-  }
-
-  .inputContainer {
-    width: 400px;
-    padding-right: 100px;
-
-
-  }
-
-  .inputContainer .input {
-    width: 400px;
-    padding: 20px;
-    padding-right: 100px;
-    border: none;
-    font-size: small;
-  }
-
-} */

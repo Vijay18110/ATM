@@ -62,20 +62,24 @@ const AtmCard = (props) => {
 
                                 <div className='carddetail'>
                                     <div>
-                                        <span className='top'>{user.bankname}</span>
-                                        <span className='middle'>{user.cardtype}</span>
-                                        <span className='middlebottom'>{user.cardnumber}</span>
 
-                                        <div className='bottomcont'>
-                                            <div>
+                                        <div className='bankname'>{user.bankname}</div>
+                                        <div className='cardtype'>{user.cardtype}</div>
+                                        <div className='cardno'>{user.cardnumber}</div>
+                                        <div style={{ display: "flex" }} >
+                                            <div className='expiry'>
                                                 <span>VALID</span> <span>THRU</span>
                                             </div>
-                                            <span>{user.expiry}</span>
+                                            <span >{user.expiry}</span>
+                                        </div>
 
-                                        </div>
-                                        <div className='img'>
-                                            <img src={cardimg} alt="" />
-                                        </div>
+
+
+
+
+
+
+
                                     </div>
                                 </div>
                                 {/* <div className='updatecont' style={{}}>

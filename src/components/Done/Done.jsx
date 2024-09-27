@@ -15,7 +15,7 @@ const Done = (props) => {
             navigate('/pin/' + params.card, { state: counter });
         }
         else {
-            navigate('/atmcards');
+            navigate('/');
         }
 
     }

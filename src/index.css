@@ -7,8 +7,8 @@
 
 :root {
   /* background-image: url('img.jpg'); */
-  background-color: hwb(214 14% 10%);
-  text-shadow: 0 0 10px white;
+  background-color: rgb(172, 172, 159);
+  text-shadow: 0 0 10px rgb(83, 81, 81);
   /* background-color:#; */
   /* background-image: url('img.jpg'); */
   /* background-repeat: no-repeat;
