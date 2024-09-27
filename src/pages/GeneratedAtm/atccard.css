@@ -6,8 +6,6 @@
 .carddetail {
     width: 320px;
     height: 220px;
-
-
     background-image: url('../../assets/card.png');
     background-repeat: no-repeat;
     background-size: cover;
