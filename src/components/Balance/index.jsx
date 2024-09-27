@@ -7,12 +7,14 @@ const Balance = () => {
     const [pinno, setPinno] = useState("");
     const params = useParams()
     const [bank, SetBank] = useState("");
-    const [text, settext] = useState("");
+    const [text, settext] = useState(null);
     const [Cards, setCards] = useState([]);
+    const [Users, setUser] = useState([]);
     const Navigate = useNavigate()
     const fncontinue = async () => {
         var allusers = JSON.parse(localStorage.getItem("users"));
-        var user = allusers.filter((data) => { return (data.bankname === bank) });
+        var user = allusers.filter((data) => { return (data.bankname === bank && data.pin == pinno) });
+        setUser(user);
         settext(user[0].amount);
     }
     const close = () => {
@@ -41,7 +43,7 @@ const Balance = () => {
                 </div>
                 {pinno.length != 4 && pinno.length > 0 && <p>enter valid pin</p>}
                 <div className='inputContainer'>
-                    <input value={text} className='input' type="text" name="" id="" placeholder='select bank and enter' />
+                    <input value={Users.length ? text : "enter valid pin"} className='input' type="text" name="" id="" placeholder='select bank and enter' />
                 </div>
                 <div className='buttons'>
                     <Buttton fn={close} val="true" color="#a3213d" name="close"></Buttton>
