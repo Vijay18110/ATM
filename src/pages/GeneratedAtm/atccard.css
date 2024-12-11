@@ -58,3 +58,14 @@
 body {
     min-width: 400px;
 }
+.alert{
+font-size: 2rem;
+color: aqua;
+font-weight: 400;
+font-family: serif;
+text-transform: capitalize;
+}
+.wel{
+font-size: 3rem;
+color: rgb(101, 207, 101);
+}

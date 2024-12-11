@@ -43,7 +43,7 @@ const AtmCard = (props) => {
             <Nav></Nav>
             <div style={{ display: "flex", marginTop: "100px", gap: "30px", flexWrap: "wrap", justifyContent: "space-evenly" }}>
                 {
-                    user && user.map((user, index) => {
+                    user ? user.map((user, index) => {
                         return (
                             <div key={index} className='atmcontainercol1'>
                                 <div className='atmcontainer'>
@@ -72,14 +72,6 @@ const AtmCard = (props) => {
                                             </div>
                                             <span >{user.expiry}</span>
                                         </div>
-
-
-
-
-
-
-
-
                                     </div>
                                 </div>
                                 {/* <div className='updatecont' style={{}}>
@@ -88,7 +80,9 @@ const AtmCard = (props) => {
                                 </div> */}
                             </div>
                         )
-                    })
+                    }) : <div className="alert">
+                        <p className="wel"><strong>Welcome to SBM ATM </strong></p>
+                        Please click on add your card and proceed further</div>
                 }
                 {/* <div style={{ width: "100%", display: "flex", justifyContent: "center", textAlign: "center" }}>
                     <Button2 logout={addcard} bgcolor="#d70026" border="1px solid #d70026" width="50%" name="Add Card"></Button2>

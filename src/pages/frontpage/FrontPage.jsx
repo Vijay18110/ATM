@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import Buttton from '../../widgets/Buttton'
 import { generatePath, useNavigate } from 'react-router-dom';
 import Nav from '../Navbar';
+import { MdAddAlert } from 'react-icons/md';
 const FrontPage = (props) => {
     const [text, settext] = useState("");
     const navigate = useNavigate();
@@ -42,7 +43,7 @@ const FrontPage = (props) => {
     return (
         <>
             <div className='container'>
-
+                {!JSON.parse(localStorage.getItem('users')) && <p className='warn'><MdAddAlert /> if you don't have atm please enter a 16 digit card number to generate your atm card</p>}
                 <div>
                     <div className="inputContainer">
                         <input onKeyDown={(e) => onkeyup(e)} value={text} onChange={(e) => settext(e.target.value)} className="input" type="number" name="" id="" placeholder='Enter Your Card Number' />

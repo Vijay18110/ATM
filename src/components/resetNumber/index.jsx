@@ -18,6 +18,9 @@ const ResetNumber = (props) => {
         if (user) {
             navigate('/update/pin/' + user.cardnumber + "/" + user.pin, { replace: true });
         }
+        else {
+            alert("please enter valid number");
+        }
     }
     const fncontinue = () => {
         const users = JSON.parse(localStorage.getItem("users"));
@@ -26,6 +29,7 @@ const ResetNumber = (props) => {
             if (existinguser.pin === text) {
                 navigate('/atm/' + params.card + "/" + +text, { replace: true });
             }
+
         }
         else {
             if (state == 0) {
